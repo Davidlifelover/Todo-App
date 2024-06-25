@@ -2,8 +2,9 @@ import './Task.css';
 import { formatDistanceToNow } from 'date-fns';
 import PropTypes from 'prop-types';
 
-
-export default function Task({ description, created, onDeleted, onToggleDone, done, handleKeyDown  }) {
+export default function Task({
+  description, created, onDeleted, onToggleDone, done, handleKeyDown,
+}) {
   const distanceToNow = formatDistanceToNow(new Date(created), { includeSeconds: true });
 
   let classNames = 'description';
@@ -14,26 +15,31 @@ export default function Task({ description, created, onDeleted, onToggleDone, do
   return (
     <div className="task">
       <div className="view">
-        <input 
-          className="toggle" 
-          type="checkbox" 
+        <input
+          className="toggle"
+          type="checkbox"
           checked={done}
-          onChange={onToggleDone} 
+          onChange={onToggleDone}
         />
         <label htmlFor={`toggle-checkbox-${description}`}>
-          <span 
+          <span
             className={classNames}
             onClick={onToggleDone}
-            onKeyDown={handleKeyDown}  
-            role="button"  
-            tabIndex="0"   
+            onKeyDown={handleKeyDown}
+            role="button"
+            tabIndex="0"
           >
             {description}
           </span>
-          <span className="created">created {distanceToNow} ago</span>
+          <span className="created">
+            created
+            {distanceToNow}
+            {' '}
+            ago
+          </span>
         </label>
         <button type="button" className="icon icon-edit" aria-label="Edit task" />
-        <button 
+        <button
           type="button"
           className="icon icon-destroy"
           onClick={onDeleted}
@@ -50,12 +56,12 @@ Task.propTypes = {
   onDeleted: PropTypes.func,
   onToggleDone: PropTypes.func,
   done: PropTypes.bool,
-  handleKeyDown: PropTypes.func
+  handleKeyDown: PropTypes.func,
 };
 
 Task.defaultProps = {
   done: false,
   onDeleted: () => {},
   onToggleDone: () => {},
-  handleKeyDown: () => {}
+  handleKeyDown: () => {},
 };

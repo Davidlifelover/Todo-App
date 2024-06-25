@@ -19,11 +19,11 @@ function TasksFilter({ onFilterChange }) {
 }
 
 TasksFilter.defaultProps = {
-  onFilterChange: () => {}
+  onFilterChange: () => {},
 };
 
 TasksFilter.propTypes = {
-  onFilterChange: PropTypes.func
+  onFilterChange: PropTypes.func,
 };
 
 export default TasksFilter;

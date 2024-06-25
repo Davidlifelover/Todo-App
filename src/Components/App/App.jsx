@@ -1,12 +1,11 @@
 import { Component } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 import NewTaskForm from '../NewTaskForm';
 import TaskList from '../TaskList';
 import Footer from '../Footer';
 import './App.css';
-import { v4 as uuidv4 } from 'uuid';
 
 export default class App extends Component {
-
   static handleKeyDown(onToggleDone) {
     return (e) => {
       if (e.key === 'Enter' || e.key === ' ') {
@@ -31,9 +30,9 @@ export default class App extends Component {
       tasks: [
         App.createTodoItem('Completed task'),
         App.createTodoItem('Editing task'),
-        App.createTodoItem('Active task')
+        App.createTodoItem('Active task'),
       ],
-      filter: 'All'
+      filter: 'All',
     };
   }
 
@@ -55,12 +54,12 @@ export default class App extends Component {
         }
         return task;
       });
-  
+
       return {
         tasks: newArray,
       };
     });
-  };  
+  };
 
   deleteItem = (id) => {
     this.setState(({ tasks }) => {
@@ -69,7 +68,7 @@ export default class App extends Component {
         tasks: newArray,
       };
     });
-  };  
+  };
 
   onFilterChange = (filter) => {
     this.setState({ filter });

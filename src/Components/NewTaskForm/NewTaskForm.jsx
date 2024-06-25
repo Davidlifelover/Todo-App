@@ -15,20 +15,20 @@ export default class NewTaskForm extends Component {
     this.setState({
       description: value,
     });
-  }
+  };
 
   onSubmit = (e) => {
     e.preventDefault();
     const { onItemAdded } = this.props;
     const { description } = this.state;
-    
+
     onItemAdded(description);
     this.setState({ description: '' });
-  }
+  };
 
   render() {
     const { description } = this.state;
-    
+
     return (
       <header className="header">
         <h1>Todos</h1>
@@ -52,4 +52,3 @@ NewTaskForm.defaultProps = {
 NewTaskForm.propTypes = {
   onItemAdded: PropTypes.func,
 };
-
