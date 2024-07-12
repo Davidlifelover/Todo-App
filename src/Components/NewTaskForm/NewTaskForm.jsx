@@ -39,7 +39,14 @@ export default class NewTaskForm extends Component {
             onChange={this.onDescriptionChange}
             value={description}
           />
-        </form>
+          <input className="new-todo-form__timer" 
+            placeholder="Min" 
+            type="number" 
+            />
+          <input className="new-todo-form__timer" 
+            placeholder="Sec" 
+            type="number"  />
+          </form>
       </header>
     );
   }

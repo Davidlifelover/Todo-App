@@ -1,6 +1,7 @@
 import './Task.css';
 import { formatDistanceToNow } from 'date-fns';
 import PropTypes from 'prop-types';
+import Timer from '../Timer';
 
 export default function Task({
   description, created, onDeleted, onToggleDone, done, handleKeyDown,
@@ -38,6 +39,9 @@ export default function Task({
             ago
           </span>
         </label>
+        <div className='timer-block'>
+          <Timer />
+        </div>
         <button type="button" className="icon icon-edit" aria-label="Edit task" />
         <button
           type="button"
